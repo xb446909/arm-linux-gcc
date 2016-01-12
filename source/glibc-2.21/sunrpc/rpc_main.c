@@ -326,9 +326,9 @@ clear_args (void)
 static void
 find_cpp (void)
 {
-  struct stat64 buf;
+  struct stat buf;
 
-  if (stat64 (CPP, &buf) == 0)
+  if (stat (CPP, &buf) == 0)
     return;
 
   if (cppDefined) /* user specified cpp but it does not exist */
@@ -1114,17 +1114,17 @@ putarg (int whereto, const char *cp)
 static void
 checkfiles (const char *infile, const char *outfile)
 {
-  struct stat64 buf;
+  struct stat buf;
 
   if (infile)			/* infile ! = NULL */
-    if (stat64 (infile, &buf) < 0)
+    if (stat (infile, &buf) < 0)
       {
 	perror (infile);
 	crash ();
       }
   if (outfile)
     {
-      if (stat64 (outfile, &buf) < 0)
+      if (stat (outfile, &buf) < 0)
 	return;			/* file does not exist */
       else
 	{
