@@ -33,5 +33,3 @@ $SRCDIR/gcc-5.2.0/configure                     \
 
 make all-gcc -j8
 make install-gcc
-make all-target-libgcc -j8
-make install-target-libgcc
